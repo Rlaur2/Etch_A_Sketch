@@ -1,3 +1,25 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    font-size: 5em;
+    background-color: yellow;
+    outline: 2px black solid;
+    margin-bottom: 2vh;
+}
+
+.button:hover {
+    background-color: black;
+    color: white;
+    outline: 2px red solid;
+}
+
 .page {
     display: flex;
     justify-content: center;
@@ -15,4 +37,8 @@
     height: 56.25px;
     width: 56.25px;
     outline: gray 1px solid;
+}
+
+.hovered {
+    background-color: grey;
 }
