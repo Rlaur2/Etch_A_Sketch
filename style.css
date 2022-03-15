@@ -1,0 +1,18 @@
+.page {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    outline: red 6px solid;
+    height: 900px;
+    width: 900px;
+    display: flex;
+    flex-flow: wrap;
+}
+
+.square {
+    height: 56.25px;
+    width: 56.25px;
+    outline: gray 1px solid;
+}
