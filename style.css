@@ -33,12 +33,8 @@
     flex-flow: wrap;
 }
 
-.square {
-    height: 56.25px;
-    width: 56.25px;
-    outline: gray 1px solid;
-}
+/* had to create a formula in JS to fill out the space with flex*/
 
 .hovered {
-    background-color: grey;
+    background-color: black;
 }
