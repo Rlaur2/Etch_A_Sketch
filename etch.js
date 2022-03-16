@@ -36,9 +36,4 @@ const resetGrid = () => {
     gridCreation(newGrid);
 }
 
-//find out out to use the forEach method, I only know how to work a 'for of' loop
-for (square of squares) {
-    square.addEventListener('mouseover',hover);
-}
-
 resetButton.addEventListener('click',resetGrid);
