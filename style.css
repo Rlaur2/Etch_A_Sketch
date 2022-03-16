@@ -7,11 +7,43 @@
     justify-content: center;
 }
 
+.buttons {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1em;
+}
+
 .button {
-    font-size: 5em;
+    font-size: 3em;
     background-color: yellow;
     outline: 2px black solid;
-    margin-bottom: 2vh;
+}
+
+.smButton {
+    font-size: 2em;
+    padding: .2rem 1rem;
+}
+
+#draw {
+    outline: 2px solid black;
+}
+
+#draw:hover,.draw-clicked {
+    background-color: green;
+}
+
+.erase:hover {
+    outline: 2px solid black;
+    color: black;
+    background-color: red;
+
+}
+
+.erase {
+    background-color: black;
+    color: white;
 }
 
 .button:hover {
