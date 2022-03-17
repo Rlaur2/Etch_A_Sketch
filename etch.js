@@ -1,6 +1,7 @@
 const container = document.querySelector('.container');
 const resetButton = document.querySelector('.button');
 const drawButton = document.querySelector('#draw');
+const rainbowButton = document.querySelector('#rainbow');
 const eraseButton = document.querySelector('.erase');
 
 //function to activate draw capability and remove erase capability
@@ -14,9 +15,12 @@ const draw = () => {
     } else {
     drawButton.classList.add('draw-clicked');
     eraseButton.style.cssText = '';
+    rainbowButton.classList.remove('rainbow-clicked');
+    rainbowButton.style.cssText = '';
     for (square of squares) {
         square.addEventListener('mouseover',hoverAdd);
         square.removeEventListener('mouseover',hoverDelete);
+        square.removeEventListener('mouseover',hoverRainbow);
         }
     }  
 };
@@ -42,16 +46,29 @@ gridCreation();
 //function to add color of squares when moused over
 function hoverAdd (e) {
     this.classList.add('hovered');
+    this.style.backgroundColor = '';
 }
 
 //function to delete color of squares when moused over
 function hoverDelete (e) {
     this.classList.remove('hovered');
+    this.style.backgroundColor = '';
+}
+
+//function to add a random RGB value when moused over
+function hoverRainbow (e) {
+    random = Math.floor(Math.random()*255);
+    random1 = Math.floor(Math.random()*255);
+    random2 = Math.floor(Math.random()*255);
+    this.style.backgroundColor = `rgb(${random},${random1},${random2})`;
 }
 
 //function for reset grid button, had to look up the 'isNaN' method, newGrid !== 'number' doesn't work
 const resetGrid = () => {
     newGrid = Number((prompt('How many squares per side would you like? Choose a number between (and including) 1 and 100.')));
+    if (newGrid > 50) {
+        alert('Warning! Choosing a number greater than 50 may cause slowdown!');
+    }
     if (newGrid > 100 || newGrid < 1 || isNaN(newGrid)) {
         alert('Please enter a number between (and including) 1 and 100!');
         return;
@@ -60,6 +77,27 @@ const resetGrid = () => {
         container.removeChild(square);
     }
     gridCreation(newGrid);
+}
+
+//function that creates a rainbow effect
+const rainbow = () => {
+    if (rainbowButton.className === 'smButton rainbow-clicked') {
+        rainbowButton.classList.remove('rainbow-clicked');
+        rainbowButton.style.cssText = '';
+        for (square of squares) {
+            square.removeEventListener('mouseover',hoverRainbow);
+        }
+    } else {
+        rainbowButton.classList.add('rainbow-clicked');
+        rainbowButton.style.cssText = 'background-size: 1800% 1800%';
+        drawButton.classList.remove('draw-clicked');
+        eraseButton.style.cssText = '';
+        for (square of squares) {
+            square.addEventListener('mouseover',hoverRainbow);
+            square.removeEventListener('mouseover',hoverAdd);
+            square.removeEventListener('mouseover',hoverDelete);
+        }
+    }
 }
 
 //counter function that erases and removes draw ability, can be toggled
@@ -72,6 +110,8 @@ const erase = () => {
     } else {
     eraseButton.style.cssText = 'background-color: red; color: black; outline: 2px black solid;';
     drawButton.classList.remove('draw-clicked');
+    rainbowButton.classList.remove('rainbow-clicked');
+    rainbowButton.style.cssText = '';
     for (square of squares) {
         square.addEventListener('mouseover',hoverDelete);
         square.removeEventListener('mouseover',hoverAdd);        
@@ -79,7 +119,8 @@ const erase = () => {
     }
 };
 
-//Event listeners for the three buttons
+//Event listeners for the four buttons
 resetButton.addEventListener('click',resetGrid);
 drawButton.addEventListener('click',draw);
 eraseButton.addEventListener('click',erase);
+rainbowButton.addEventListener('click',rainbow)

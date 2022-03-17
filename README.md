@@ -6,4 +6,6 @@ Things to do:
 
 {Google a way to grab the current width and height of the container so that I can make it so the squares will fit in the container perfectly if the container isn't the default 900x1100 after reseting the grid. It's not exactly responsive since it won't adjust when the screen size is changed as I haven't learned media queries yet, but this is the next best thing.} - Done
 
-Attempt a try at the optional challenge. Create a button that activates an event listener that when a square is hovered over, it will apply an inline rgb color of (random, random, random) with the random numbers being between 0 and 255. I have no idea how to go about the 2nd part of the challenge with the increasing darkness so I'll have to try googling a few things.
+{Attempt a try at the optional challenge. Create a button that activates an event listener that when a square is hovered over, it will apply an inline rgb color of (random, random, random) with the random numbers being between 0 and 255. I have no idea how to go about the 2nd part of the challenge with the increasing darkness so I'll have to try googling a few things.) - Did the first half, added a rainbow button
+
+The Reset Grid button will de-activate the Black button when it's already active due to it running the same code as the black button, create a custom function for the black button to add to Reset Grid.
