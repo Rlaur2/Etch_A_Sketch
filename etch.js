@@ -114,7 +114,7 @@ const rainbow = () => {
             square.removeEventListener('mouseover',hoverDelete);
         }
     }
-}
+};
 
 //counter function that erases and removes draw ability, can be toggled
 const erase = () => {

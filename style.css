@@ -31,7 +31,8 @@
 }
 
 #draw:hover,.draw-clicked {
-    background-color: green;
+    background-color: black;
+    color: white;
 }
 /* Not gonna lie, I just copy-pasted this for the look of the button, I'll learn this on my own next time
 I wanna implement a rainbow effect, the actual coding for the rainbow button and coloring of the squares in 
@@ -79,8 +80,9 @@ by the other .erase rule, had to apply this inline in JS */
 }
 
 .erase {
-    background-color: black;
-    color: white;
+    background-color: pink;
+    color: black;
+    outline: 2px solid black;
 }
 
 .button:hover {
