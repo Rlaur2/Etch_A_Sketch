@@ -3,17 +3,29 @@ const resetButton = document.querySelector('.button');
 const drawButton = document.querySelector('#draw');
 const eraseButton = document.querySelector('.erase');
 
+//function to activate draw capability and remove erase capability
+const draw = () => {
+    drawButton.classList.add('draw-clicked');
+    eraseButton.style.cssText = '';
+    for (square of squares) {
+        square.addEventListener('mouseover',hoverAdd);
+        square.removeEventListener('mouseover',hoverDelete);
+    }
+};
+
 //loop to create inital amount of 16x16 squares
 const gridCreation = (grid = 16) => {
 for (i = 0; i < grid * grid; i++) {
     square = document.createElement('div');
     square.classList.toggle('square');
-    squareSize = 900 / grid;
-    square.style.cssText = `height: ${squareSize}px; width: ${squareSize}px;`;
+    squareWidth = container.offsetWidth / grid;
+    squareHeight = container.offsetHeight / grid;
+    square.style.cssText = `height: ${squareHeight}px; width: ${squareWidth}px;`;
     container.appendChild(square);
     //find out out to use the forEach method, I only know how to work a 'for of' loop
 }
 squares = document.querySelectorAll('.square');
+draw();
 }
 
 gridCreation();
@@ -45,15 +57,6 @@ const resetGrid = () => {
 
 resetButton.addEventListener('click',resetGrid);
 
-//function to activate draw capability and remove erase capability
-const draw = () => {
-    drawButton.classList.add('draw-clicked');
-    eraseButton.style.cssText = '';
-    for (square of squares) {
-        square.addEventListener('mouseover',hoverAdd);
-        square.removeEventListener('mouseover',hoverDelete);
-    }
-};
 drawButton.addEventListener('click',draw);
 
 //counter function that erases and removes draw ability

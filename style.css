@@ -34,6 +34,8 @@
     background-color: green;
 }
 
+/* when applying this rule to the erase button it was overwritten 
+by the other .erase rule, had to apply this inline in JS */
 .erase:hover {
     outline: 2px solid black;
     color: black;
@@ -60,7 +62,7 @@
 .container {
     outline: red 6px solid;
     height: 900px;
-    width: 900px;
+    width: 1100px;
     display: flex;
     flex-flow: wrap;
 }
