@@ -33,8 +33,9 @@
 #draw:hover,.draw-clicked {
     background-color: green;
 }
-/* Not gonna lie, I just copy-pasted this for the button, I'll learn this on my own next time
-I wanna implement a rainbow effect */ 
+/* Not gonna lie, I just copy-pasted this for the look of the button, I'll learn this on my own next time
+I wanna implement a rainbow effect, the actual coding for the rainbow button and coloring of the squares in 
+the Javascript was all me, as was absolutely everything else */ 
 #rainbow{
     background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
     -webkit-animation: rainbow 18s ease infinite;

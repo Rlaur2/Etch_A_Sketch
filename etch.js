@@ -25,6 +25,21 @@ const draw = () => {
     }  
 };
 
+/*The draw function needs to be adjusted slightly for the reset
+functionality, or else the draw function would act as a toggle
+which doesn't make sense for the reset */
+const drawGrid = () => {
+    drawButton.classList.add('draw-clicked');
+    eraseButton.style.cssText = '';
+    rainbowButton.classList.remove('rainbow-clicked');
+    rainbowButton.style.cssText = '';
+    for (square of squares) {
+        square.addEventListener('mouseover',hoverAdd);
+        square.removeEventListener('mouseover',hoverDelete);
+        square.removeEventListener('mouseover',hoverRainbow);
+        }
+};
+
 //loop to create grid based off the number given, default is 16x16
 //also turns on the Draw function
 const gridCreation = (grid = 16) => {
@@ -37,7 +52,7 @@ for (i = 0; i < grid * grid; i++) {
     container.appendChild(square);
 }
 squares = document.querySelectorAll('.square');
-draw();
+drawGrid();
 }
 
 //creates initial default grid
@@ -79,7 +94,8 @@ const resetGrid = () => {
     gridCreation(newGrid);
 }
 
-//function that creates a rainbow effect
+/*function that creates a rainbow effect, added 'once' keyword so ot doesn't overwrite
+square when hovered */
 const rainbow = () => {
     if (rainbowButton.className === 'smButton rainbow-clicked') {
         rainbowButton.classList.remove('rainbow-clicked');
@@ -93,7 +109,7 @@ const rainbow = () => {
         drawButton.classList.remove('draw-clicked');
         eraseButton.style.cssText = '';
         for (square of squares) {
-            square.addEventListener('mouseover',hoverRainbow);
+            square.addEventListener('mouseover',hoverRainbow,{once:true});
             square.removeEventListener('mouseover',hoverAdd);
             square.removeEventListener('mouseover',hoverDelete);
         }
