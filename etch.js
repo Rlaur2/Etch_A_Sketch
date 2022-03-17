@@ -43,11 +43,11 @@ const drawGrid = () => {
 //loop to create grid based off the number given, default is 16x16
 //also turns on the Draw function
 const gridCreation = (grid = 16) => {
-for (i = 0; i < grid * grid; i++) {
-    square = document.createElement('div');
-    square.classList.toggle('square');
     squareWidth = container.offsetWidth / grid;
     squareHeight = container.offsetHeight / grid;
+    for (i = 0; i < grid * grid; i++) {
+    square = document.createElement('div');
+    square.classList.toggle('square');
     square.style.cssText = `height: ${squareHeight}px; width: ${squareWidth}px;`;
     container.appendChild(square);
 }
@@ -81,9 +81,6 @@ function hoverRainbow (e) {
 //function for reset grid button, had to look up the 'isNaN' method, newGrid !== 'number' doesn't work
 const resetGrid = () => {
     newGrid = Number((prompt('How many squares per side would you like? Choose a number between (and including) 1 and 100.')));
-    if (newGrid > 50) {
-        alert('Warning! Choosing a number greater than 50 may cause slowdown!');
-    }
     if (newGrid > 100 || newGrid < 1 || isNaN(newGrid)) {
         alert('Please enter a number between (and including) 1 and 100!');
         return;
